@@ -58,6 +58,10 @@ type -a nvm > /dev/null && load-nvmrc
 # Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
+
+# Use Python symlinks (added on May 1st 2023 after installing Python with Brew)
+export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
@@ -70,3 +74,9 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+# Export OpenAI API KEY
+export OPENAI_API_KEY="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"
+
+# Alias used to create a new python envrionment (cf dbt-cli doc https://docs.getdbt.com/docs/core/pip-install)
+alias env_dbt='source dbt-env/bin/activate'
